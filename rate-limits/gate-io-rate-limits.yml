@@ -1,0 +1,83 @@
+name: Gate.io API Rate Limits
+description: >-
+  Gate API v4 applies separate rate limits to public (unauthenticated) and
+  private (authenticated) endpoints. Public endpoints are scoped by IP address;
+  private endpoints are scoped by UID (API key). Additional per-market limits
+  apply to order-management endpoints for spot and perpetual futures to guard
+  against low-fill-ratio order flooding. Rate limits are periodically reviewed
+  and adjusted with advance notice published in Gate.com announcements.
+specificationVersion: '0.1'
+rateLimits:
+
+  - name: Public REST Endpoints
+    description: >-
+      All public (unauthenticated) REST API v4 endpoints, such as market data,
+      tickers, order books, and trade history.
+    scope: per IP per endpoint
+    limit: 200
+    window: 10s
+    notes: >-
+      Applied uniformly across all public endpoints. Exceeding the limit returns
+      HTTP 429 Too Many Requests.
+
+  - name: Private REST Endpoints (General)
+    description: >-
+      Authenticated REST endpoints for account data, balances, and general
+      trading operations not subject to per-market limits.
+    scope: per UID per endpoint
+    limit: 200
+    window: 10s
+    notes: >-
+      Applied per API key (UID). Shared across all API keys belonging to the
+      same UID.
+
+  - name: Spot Order Placement and Amendment
+    description: >-
+      Rate limits for the spot order entry endpoints (single and batch order
+      placement, order amendment).
+    scope: per UID per market (currency pair)
+    limit: 10
+    window: 1s
+    notes: >-
+      Total of 10 requests per second shared across the same UID and market.
+      A UID operating across different markets has independent 10 r/s limits
+      per market. Low fill-ratio trading activity may trigger dynamic throttling
+      per November 2024 rule adjustments.
+
+  - name: Perpetual Futures Order Placement and Modification
+    description: >-
+      Rate limits for perpetual futures order entry and modification endpoints.
+    scope: per UID per contract
+    limit: 10
+    window: 10s
+    notes: >-
+      Maximum of 10 requests per 10 seconds per UID per contract. Additional
+      behavioral rate limiting applies to accounts with high cancellation-to-fill
+      ratios.
+
+  - name: WebSocket Connections
+    description: >-
+      Limits on concurrent WebSocket connections per account.
+    scope: per UID
+    notes: >-
+      Multiple channels can be subscribed within a single connection. Refer to
+      the official WebSocket documentation for channel subscription limits.
+    url: https://www.gate.com/docs/developers/apiv4/en/
+
+  - name: Institutional / Advanced Rate Limits
+    description: >-
+      VIP 15–16 users and accounts classified as advanced institutional users
+      (API volume >= 60% of total) may negotiate elevated rate limits with Gate
+      directly.
+    scope: per UID — custom
+    notes: >-
+      Contact Gate institutional support at https://www.gate.com/institutionalServices
+      to request higher rate limit tiers.
+
+references:
+  - title: Gate.io API Rate Limit Adjustment (Spot) — November 2024
+    url: https://www.gate.com/announcements/article/40657/gate.io-api-rate-limit-rules-adjustments-for-enhanced-spot-trading
+  - title: Gate.io API Rate Limit Adjustment (Perpetuals) — CoinCarp archive
+    url: https://www.coincarp.com/exchange/announcement/gate-io-38255/
+  - title: Gate API v4 Frequency Limit Rules
+    url: https://www.gate.com/docs/developers/apiv4/en/

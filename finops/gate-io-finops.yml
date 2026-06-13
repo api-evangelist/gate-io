@@ -1,0 +1,123 @@
+name: Gate.io FinOps Framework
+description: >-
+  FinOps cost-management guidance for teams integrating with the Gate API v4.
+  Gate.io does not charge for API access itself; costs arise from trading fees,
+  withdrawal fees, and any premium services. Optimizing API usage therefore
+  means minimizing unnecessary trades, choosing the right VIP tier, and using
+  maker orders where possible.
+specificationVersion: '1.0'
+
+costDrivers:
+
+  - name: Spot Trading Fees
+    description: >-
+      The primary cost for API traders. Base rate is 0.2% maker / 0.2% taker.
+      Fees are paid in the quote currency unless GT token discounts are applied.
+      Maker orders (resting orders that add liquidity) are always cheaper or
+      equal to taker orders.
+    unit: percentage of notional trade value
+    baseRate:
+      maker: '0.20%'
+      taker: '0.20%'
+    lowestRate:
+      maker: '0.00%'
+      taker: '0.02%'
+    optimization:
+      - Use limit orders (maker) instead of market orders (taker) where latency permits.
+      - Accumulate 30-day volume to advance VIP tier and reduce fee rates.
+      - Hold GT tokens to qualify for fee discounts and VIP tier upgrades.
+
+  - name: Futures & Perpetuals Trading Fees
+    description: >-
+      Contract trading fees also follow the VIP maker/taker model. Institutional
+      market makers at VIP 10+ pay 0% maker fees on futures as well.
+    unit: percentage of notional contract value
+    optimization:
+      - Operate as a market maker to target 0% maker fees at VIP 10+.
+      - Monitor the 30-day volume and GT holdings to maintain or advance tier.
+
+  - name: Withdrawal Fees
+    description: >-
+      Network-specific flat or percentage fees apply when withdrawing
+      cryptocurrency. These fees are set by Gate.io and vary by coin and network.
+    unit: per withdrawal (coin-dependent)
+    optimization:
+      - Batch withdrawals to minimize per-withdrawal overhead.
+      - Prefer networks with lower gas/fee costs when multiple networks are supported.
+
+  - name: API Rate-Limit Breach Costs
+    description: >-
+      Breaching rate limits does not incur direct monetary charges, but
+      throttled requests may cause missed trade opportunities or require
+      expensive retry logic.
+    unit: opportunity cost
+    optimization:
+      - Implement exponential back-off and respect 429 responses.
+      - Use WebSocket streams instead of REST polling for real-time data to
+        preserve REST quota for order management.
+      - Spread operations across sub-accounts if per-UID limits are a bottleneck.
+
+visibility:
+
+  - name: Fee Transparency
+    description: >-
+      Gate.io publishes the full VIP tier fee schedule at
+      https://www.gate.com/fee. Actual fees paid are visible in the account
+      trade history and accessible via the /wallet/fee REST endpoint.
+    url: https://www.gate.com/fee
+
+  - name: Volume and Tier Tracking
+    description: >-
+      The 30-day rolling volume, 14-day average GT holdings, and current VIP
+      tier can be retrieved programmatically via the Gate API v4 account
+      endpoints, enabling automated FinOps dashboards.
+
+  - name: Sub-account Cost Allocation
+    description: >-
+      Gate.io supports sub-accounts, allowing fee costs to be isolated per
+      strategy, team, or business unit for accurate chargeback and FinOps
+      reporting.
+
+optimization:
+
+  - name: Maker-Order Strategy
+    priority: high
+    description: >-
+      Consistently using limit (maker) orders instead of market (taker) orders
+      can halve or eliminate per-trade fees at higher VIP tiers.
+
+  - name: VIP Tier Advancement
+    priority: high
+    description: >-
+      Advancing from VIP 0 to VIP 10 via volume consolidation can reduce
+      spot maker fees from 0.20% to 0.00%, representing a complete elimination
+      of maker-side trading costs.
+
+  - name: GT Token Holdings
+    priority: medium
+    description: >-
+      Holding Gate Token (GT) accelerates VIP tier upgrades. Teams should
+      evaluate whether the opportunity cost of holding GT is outweighed by the
+      fee savings at higher tiers.
+
+  - name: WebSocket over REST Polling
+    priority: medium
+    description: >-
+      Replacing REST polling loops with WebSocket subscriptions for market data
+      and order/position updates eliminates redundant API calls, reducing both
+      rate-limit pressure and infrastructure costs.
+
+  - name: Batch Order Operations
+    priority: medium
+    description: >-
+      Gate API v4 supports batch order placement. Using batch endpoints reduces
+      the number of requests required per trading cycle and lowers the risk of
+      hitting per-market per-second limits.
+
+references:
+  - title: Gate.io Fee Schedule
+    url: https://www.gate.com/fee
+  - title: Gate.io VIP Tier Program
+    url: https://www.gate.com/vip
+  - title: Gate API v4 Documentation
+    url: https://www.gate.com/docs/developers/apiv4/en/

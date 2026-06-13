@@ -1,0 +1,107 @@
+name: Gate.io API Plans and Pricing
+description: >-
+  Gate.io uses a VIP tier system with 17 levels (VIP 0 through VIP 16) that
+  determines trading fee rates and API rate limit allowances. Tier eligibility
+  is assessed every 3 hours based on 30-day trading volume (spot + futures × 40%),
+  average GT token holdings over 14 days, or total account asset value. Users
+  who generate at least 60% of their volume via API, or reach VIP tier 15 or 16,
+  are automatically upgraded to advanced institutional status with dedicated API
+  support.
+specificationVersion: '0.1'
+plans:
+
+  - name: VIP 0 (Standard)
+    description: >-
+      Default tier for all registered users. Full REST and WebSocket API access
+      at standard public rate limits. Maker and taker fees both at 0.2% for
+      spot trading.
+    url: https://www.gate.com/fee
+    price: 0.00
+    currency: USD
+    billingCycle: monthly
+    features:
+      - REST API v4 access
+      - WebSocket API access
+      - Public market data endpoints
+      - Authenticated trading endpoints
+      - Standard rate limits (200 req / 10 s per endpoint by UID)
+    rateLimits:
+      - type: REST Public
+        requests: 200
+        window: 10s
+        scope: per IP per endpoint
+      - type: REST Private
+        requests: 200
+        window: 10s
+        scope: per UID per endpoint
+
+  - name: VIP 1–4 (Regular)
+    description: >-
+      Entry-level VIP tiers unlocked by moderate trading volume or GT holdings.
+      Reduced maker/taker fees compared with VIP 0. API limits unchanged.
+    url: https://www.gate.com/fee
+    price: 0.00
+    currency: USD
+    billingCycle: monthly
+    criteria:
+      - 30-day volume >= $100,000 (VIP 1) scaling to >= $10,000,000 (VIP 4)
+      - OR 14-day average GT holdings >= 1,000 (VIP 1)
+    features:
+      - All VIP 0 features
+      - Progressively reduced maker/taker spot fees
+      - Reduced futures maker/taker fees
+
+  - name: VIP 5–9 (Advanced)
+    description: >-
+      Mid-tier VIP levels for active traders. Spot maker fees drop toward 0.06%
+      and taker fees toward 0.08%. Enhanced eligibility for institutional API
+      channels.
+    url: https://www.gate.com/fee
+    price: 0.00
+    currency: USD
+    billingCycle: monthly
+    criteria:
+      - 30-day volume >= $50,000,000 (VIP 5) scaling to >= $500,000,000 (VIP 9)
+      - OR 14-day average GT holdings >= 100,000 (VIP 7+)
+    features:
+      - All VIP 4 features
+      - Maker fees approaching 0% for select levels
+      - Priority API support
+
+  - name: VIP 10–14 (Professional)
+    description: >-
+      Professional tier. At VIP 10, spot market makers pay 0% fees. Taker fees
+      are progressively reduced. Minimum 30-day volume of $100 million or 100,000
+      GT holdings required.
+    url: https://www.gate.com/fee
+    price: 0.00
+    currency: USD
+    billingCycle: monthly
+    criteria:
+      - 30-day volume >= $100,000,000 OR 100,000 GT holdings OR $2,000,000 account value
+    features:
+      - All advanced features
+      - 0% spot maker fee (VIP 10+)
+      - Reduced taker fees down to ~0.04%
+      - Dedicated account management
+
+  - name: VIP 15–16 (Institutional)
+    description: >-
+      Top institutional tier. Automatic upgrade to advanced institutional user
+      classification. API trading volume must represent at least 60% of total
+      volume, or the user must hold VIP 15–16 status. Market maker programs and
+      custom fee schedules available.
+    url: https://www.gate.com/fee
+    price: 0.00
+    currency: USD
+    billingCycle: monthly
+    criteria:
+      - VIP 15 or VIP 16 status
+      - OR API trading volume >= 60% of total volume
+    features:
+      - All professional features
+      - Taker fees as low as 0.02%
+      - Maker fees at 0%
+      - Advanced institutional API access
+      - Custom rate limit negotiation
+      - Dedicated institutional support team
