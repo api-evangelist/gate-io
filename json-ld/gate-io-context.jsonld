@@ -1,0 +1,261 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "gate": "https://api.gateio.ws/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "fibo-fnd": "https://spec.edmcouncil.org/fibo/ontology/FND/",
+
+    "CurrencyPair": {
+      "@id": "gate:CurrencyPair",
+      "@context": {
+        "id": "gate:currencyPairId",
+        "base": "gate:baseCurrency",
+        "quote": "gate:quoteCurrency",
+        "fee": "gate:fee",
+        "min_base_amount": "gate:minBaseAmount",
+        "min_quote_amount": "gate:minQuoteAmount",
+        "precision": "gate:precision",
+        "status": "gate:status",
+        "trade_status": "gate:tradeStatus"
+      }
+    },
+
+    "Order": {
+      "@id": "gate:Order",
+      "@context": {
+        "id": "gate:orderId",
+        "text": "gate:clientOrderId",
+        "currency_pair": "gate:currencyPair",
+        "type": "gate:orderType",
+        "side": "gate:side",
+        "amount": "gate:amount",
+        "price": "schema:price",
+        "time_in_force": "gate:timeInForce",
+        "status": "gate:status",
+        "fill_price": "gate:fillPrice",
+        "filled_amount": "gate:filledAmount",
+        "left": "gate:remainingAmount",
+        "avg_deal_price": "gate:averageDealPrice",
+        "fee": "gate:fee",
+        "fee_currency": "gate:feeCurrency",
+        "create_time": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "update_time": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "SpotAccount": {
+      "@id": "gate:SpotAccount",
+      "@context": {
+        "currency": "gate:currency",
+        "available": "gate:availableBalance",
+        "locked": "gate:lockedBalance"
+      }
+    },
+
+    "Trade": {
+      "@id": "gate:Trade",
+      "@context": {
+        "id": "gate:tradeId",
+        "order_id": "gate:orderId",
+        "currency_pair": "gate:currencyPair",
+        "side": "gate:side",
+        "amount": "gate:amount",
+        "price": "schema:price",
+        "fee": "gate:fee",
+        "fee_currency": "gate:feeCurrency",
+        "create_time": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "FuturesContract": {
+      "@id": "gate:FuturesContract",
+      "@context": {
+        "name": "schema:name",
+        "type": "gate:contractType",
+        "quanto_multiplier": "gate:quantoMultiplier",
+        "leverage_min": "gate:leverageMin",
+        "leverage_max": "gate:leverageMax",
+        "maintenance_rate": "gate:maintenanceRate",
+        "mark_type": "gate:markType",
+        "mark_price": "gate:markPrice",
+        "index_price": "gate:indexPrice",
+        "last_price": "gate:lastPrice",
+        "maker_fee_rate": "gate:makerFeeRate",
+        "taker_fee_rate": "gate:takerFeeRate",
+        "funding_rate": "gate:fundingRate",
+        "funding_next_apply": {
+          "@id": "gate:fundingNextApply",
+          "@type": "xsd:dateTime"
+        },
+        "order_size_min": "gate:orderSizeMin",
+        "order_size_max": "gate:orderSizeMax"
+      }
+    },
+
+    "FuturesOrder": {
+      "@id": "gate:FuturesOrder",
+      "@context": {
+        "id": "gate:orderId",
+        "user": "gate:userId",
+        "contract": "gate:contract",
+        "create_time": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "size": "gate:size",
+        "price": "schema:price",
+        "tif": "gate:timeInForce",
+        "status": "gate:status",
+        "fill_price": "gate:fillPrice",
+        "left": "gate:remaining",
+        "mkfr": "gate:makerFeeRate",
+        "tkfr": "gate:takerFeeRate",
+        "is_reduce_only": "gate:isReduceOnly",
+        "is_close": "gate:isClose",
+        "is_liq": "gate:isLiquidation"
+      }
+    },
+
+    "Position": {
+      "@id": "gate:Position",
+      "@context": {
+        "user": "gate:userId",
+        "contract": "gate:contract",
+        "size": "gate:size",
+        "leverage": "gate:leverage",
+        "risk_limit": "gate:riskLimit",
+        "leverage_max": "gate:leverageMax",
+        "maintenance_rate": "gate:maintenanceRate",
+        "value": "gate:positionValue",
+        "margin": "gate:margin",
+        "entry_price": "gate:entryPrice",
+        "mark_price": "gate:markPrice",
+        "liq_price": "gate:liquidationPrice",
+        "unrealised_pnl": "gate:unrealisedPnl",
+        "realised_pnl": "gate:realisedPnl",
+        "mode": "gate:positionMode"
+      }
+    },
+
+    "OptionsContract": {
+      "@id": "gate:OptionsContract",
+      "@context": {
+        "name": "schema:name",
+        "tag": "gate:tag",
+        "create_time": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "expiration_time": {
+          "@id": "gate:expirationTime",
+          "@type": "xsd:dateTime"
+        },
+        "is_call": "gate:isCall",
+        "strike_price": "gate:strikePrice",
+        "last_price": "gate:lastPrice",
+        "mark_price": "gate:markPrice",
+        "index_price": "gate:indexPrice",
+        "maker_fee_rate": "gate:makerFeeRate",
+        "taker_fee_rate": "gate:takerFeeRate",
+        "underlying": "gate:underlying",
+        "multiplier": "gate:multiplier",
+        "order_size_min": "gate:orderSizeMin"
+      }
+    },
+
+    "DepositAddress": {
+      "@id": "gate:DepositAddress",
+      "@context": {
+        "currency": "gate:currency",
+        "address": "gate:depositAddress",
+        "multichain_addresses": "gate:multichainAddresses"
+      }
+    },
+
+    "LedgerRecord": {
+      "@id": "gate:LedgerRecord",
+      "@context": {
+        "id": "gate:ledgerId",
+        "txid": "gate:txid",
+        "withdraw_order_id": "gate:withdrawOrderId",
+        "timestamp": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "amount": "gate:amount",
+        "currency": "gate:currency",
+        "address": "gate:address",
+        "status": "gate:status",
+        "memo": "gate:memo",
+        "fee": "gate:fee",
+        "chain": "gate:chain"
+      }
+    },
+
+    "SubAccount": {
+      "@id": "gate:SubAccount",
+      "@context": {
+        "login_name": "gate:loginName",
+        "user_id": "gate:userId",
+        "email": "schema:email",
+        "state": "gate:state",
+        "type": "gate:accountType",
+        "create_time": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Currency": {
+      "@id": "gate:Currency",
+      "@context": {
+        "currency": "gate:currencyCode",
+        "name": "schema:name",
+        "delisted": "gate:delisted",
+        "withdraw_disabled": "gate:withdrawDisabled",
+        "withdraw_delayed": "gate:withdrawDelayed",
+        "deposit_disabled": "gate:depositDisabled",
+        "trade_disabled": "gate:tradeDisabled",
+        "chain": "gate:defaultChain"
+      }
+    },
+
+    "Ticker": {
+      "@id": "gate:Ticker",
+      "@context": {
+        "currency_pair": "gate:currencyPair",
+        "last": "gate:lastPrice",
+        "lowest_ask": "gate:lowestAsk",
+        "highest_bid": "gate:highestBid",
+        "change_percentage": "gate:changePercentage",
+        "base_volume": "gate:baseVolume",
+        "quote_volume": "gate:quoteVolume",
+        "high_24h": "gate:high24h",
+        "low_24h": "gate:low24h"
+      }
+    },
+
+    "OrderBook": {
+      "@id": "gate:OrderBook",
+      "@context": {
+        "asks": "gate:asks",
+        "bids": "gate:bids",
+        "current": "gate:currentTimestamp",
+        "update": "gate:updateTimestamp",
+        "id": "gate:orderBookId"
+      }
+    }
+  }
+}

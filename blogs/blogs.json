@@ -1,0 +1,15 @@
+{
+  "repo": "gate-io",
+  "feeds": [
+    {
+      "source": "https://www.gate.io/blog/bloglist",
+      "feed_url": "https://www.gate.io/blog/bloglist",
+      "title": "",
+      "saved": 0,
+      "method": "none",
+      "error": "403 Forbidden"
+    }
+  ],
+  "fetched": "2026-06-13T00:00:00Z",
+  "post_count": 0
+}
