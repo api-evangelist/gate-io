@@ -8,7 +8,7 @@ description: >-
   market data. SDKs are available in Python, Node.js, Java, Go, PHP, C#, and
   JavaScript, all generated from an OpenAPI specification.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/gate-io/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -32,7 +32,7 @@ apis:
       Public and authenticated REST endpoints for spot and margin trading,
       including order placement, cancellation, order-book queries, trade
       history, and account balance management.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: https://api.gateio.ws/api/v4
     tags:
@@ -50,7 +50,7 @@ apis:
       REST and WebSocket interfaces for linear and inverse perpetual futures
       contracts, including order management, position tracking, funding rates,
       and settlement data.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: https://api.gateio.ws/api/v4
     tags:
@@ -66,7 +66,7 @@ apis:
       REST endpoints for options trading, including querying available contracts,
       placing and managing options orders, and retrieving settlement and Greeks
       data.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: https://api.gateio.ws/api/v4
     tags:
@@ -80,7 +80,7 @@ apis:
     description: >-
       Endpoints for deposit and withdrawal management, transfer between
       sub-accounts and trading accounts, currency information, and fee schedules.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: https://api.gateio.ws/api/v4
     tags:
@@ -97,7 +97,7 @@ apis:
       Real-time WebSocket streams for market data (order books, trades, tickers,
       candlesticks) and private channels for order updates, balance changes, and
       position events across spot, futures, and options markets.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: wss://api.gateio.ws/ws/v4/
     tags:
