@@ -3,13 +3,10 @@
   "feeds": [
     {
       "source": "https://www.gate.io/blog/bloglist",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://www.linkedin.com/company/gateio",
-      "error": "HTTPError"
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     }
   ],
-  "fetched": "2026-06-14T20:42:17Z",
+  "fetched": "2026-06-27T12:43:12Z",
   "post_count": 0
 }
