@@ -113,6 +113,8 @@ apis:
 
 common:
 
+  - type: DomainSecurity
+    url: security/gate-io-domain-security.yml
   - type: Website
     url: https://www.gate.io/
 

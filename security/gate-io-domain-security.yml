@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.gate.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  4 01:13:54 2026 GMT
+  hsts: null
+- host: www.gate.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  6 00:48:20 2026 GMT
+  hsts: null
+- host: api.gateio.ws
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Dec 27 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: gate.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: gate.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
