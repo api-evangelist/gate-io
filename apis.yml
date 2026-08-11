@@ -125,6 +125,10 @@ apis:
 
 common:
 
+  - type: IssueTracker
+    url: https://github.com/gateio/gatews/issues
+  - type: Releases
+    url: https://github.com/gateio/gatews/releases
   - type: DomainSecurity
     url: security/gate-io-domain-security.yml
   - type: Website
