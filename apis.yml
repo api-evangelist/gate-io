@@ -35,6 +35,17 @@ tags:
   - Options
   - WebSocket
   - Market Data
+  - Wallets
+tags_raw:
+  - Cryptocurrency
+  - Exchange
+  - Trading
+  - Spot Trading
+  - Margin Trading
+  - Futures
+  - Options
+  - WebSocket
+  - Market Data
   - Wallet
 
 apis:
@@ -48,6 +59,10 @@ apis:
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: https://api.gateio.ws/api/v4
     tags:
+      - Spot Trading
+      - Margin Trading
+      - Order
+    tags_raw:
       - Spot Trading
       - Margin Trading
       - Orders
@@ -96,6 +111,11 @@ apis:
     humanURL: https://www.gate.com/docs/developers/apiv4/en/
     baseURL: https://api.gateio.ws/api/v4
     tags:
+      - Wallets
+      - Account
+      - Withdrawals
+      - Deposits
+    tags_raw:
       - Wallet
       - Accounts
       - Withdrawals
