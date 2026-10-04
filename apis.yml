@@ -3,16 +3,19 @@ name: Gate.io
 description: Gate.io is a pioneering cryptocurrency exchange serving over 23 million users globally since 2013. Its Gate API v4 provides REST and WebSocket interfaces for spot, margin, futures, options, and perpetual contract trading, as well as wallet management, earn products, sub-account operations, and comprehensive market data. SDKs are available in Python, Node.js, Java, Go, PHP, C#, and JavaScript, all generated from an OpenAPI specification.
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - gateio/gatews
   open_source: unknown
   commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
