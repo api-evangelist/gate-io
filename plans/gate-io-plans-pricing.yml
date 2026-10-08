@@ -109,3 +109,40 @@ plans:
       - Advanced institutional API access
       - Custom rate limit negotiation
       - Dedicated institutional support team
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: VIP 0 (Standard)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: VIP 1–4 (Regular)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: VIP 5–9 (Advanced)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: VIP 10–14 (Professional)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: VIP 15–16 (Institutional)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
