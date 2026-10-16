@@ -2,6 +2,10 @@
   "repo": "gate-io",
   "feeds": [
     {
+      "source": "https://www.gate.io/blog/bloglist",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://www.linkedin.com/company/gateio",
       "feed_url": "https://www.linkedin.com/company/gateio",
       "title": "",
@@ -9,6 +13,6 @@
       "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 0
 }
