@@ -1,4 +1,4 @@
-# Gate.io (gate-io)
+# Gate.io
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,8 +64,116 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Gate.io is a pioneering cryptocurrency exchange serving over 23 million users globally since 2013. The Gate API v4 provides REST and WebSocket interfaces for spot, margin, futures, options, and perpetual contract trading, wallet management, earn products, sub-account operations, and comprehensive market data. Official SDKs are available in Python, Node.js, Java, Go, PHP, C#, and JavaScript.
+Gate.io is a pioneering cryptocurrency exchange serving over 23 million users globally since 2013. Its Gate API v4 provides REST and WebSocket interfaces for spot, margin, futures, options, and perpetual contract trading, as well as wallet management, earn products, sub-account operations, and comprehensive market data. SDKs are available in Python, Node.js, Java, Go, PHP, C#, and JavaScript, all generated from an OpenAPI specification.
 
-APIs.json: https://raw.githubusercontent.com/api-evangelist/gate-io/refs/heads/main/apis.yml
+**Areas:** Cryptocurrency · Exchange · Trading · Spot Trading · Margin Trading · Futures · Options · WebSocket · Market Data · Wallets
 
-Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=gate-io-api-evangelist&utm_content=repo
+## Gate.io on APIs.io
+
+Everything profiled for Gate.io is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gate-io/](https://apis.io/providers/gate-io/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Gate API v4 — Spot & Margin](https://apis.io/apis/gate-io/gate-api-v4-spot-margin/) — Public and authenticated REST endpoints for spot and margin trading, including order placement, cancellation, order-book queries, trade history, and account…
+- [Gate API v4 — Futures & Perpetuals](https://apis.io/apis/gate-io/gate-api-v4-futures-perpetuals/) — REST and WebSocket interfaces for linear and inverse perpetual futures contracts, including order management, position tracking, funding rates, and…
+- [Gate API v4 — Options](https://apis.io/apis/gate-io/gate-api-v4-options/) — REST endpoints for options trading, including querying available contracts, placing and managing options orders, and retrieving settlement and Greeks data.
+- [Gate API v4 — Wallet & Account](https://apis.io/apis/gate-io/gate-api-v4-wallet-account/) — Endpoints for deposit and withdrawal management, transfer between sub-accounts and trading accounts, currency information, and fee schedules.
+- [Gate WebSocket API v4](https://apis.io/apis/gate-io/gate-websocket-api-v4/) — Real-time WebSocket streams for market data (order books, trades, tickers, candlesticks) and private channels for order updates, balance changes, and…
+- [Gateio](https://apis.io/apis/gate-io/gateio/) — API provides spot, margin and futures trading operations
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Gate Io Context](https://apis.io/jsonld/gate-io/gate-io-context/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gate Io Domain Security](https://apis.io/security/gate-io/gate-io-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Gate Io Plans Pricing](https://apis.io/plans/gate-io/gate-io-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Gate Io Rate Limits](https://apis.io/rate-limits/gate-io/gate-io-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Gate Io Finops](https://apis.io/finops/gate-io/gate-io-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.gate.io/)
+- [Documentation](https://www.gate.com/docs/developers/apiv4/en/)
+- [Pricing](https://www.gate.com/fee)
+- [Blog](https://www.gate.io/blog/bloglist)
+- [Status](https://www.saashub.com/gate-io-status)
+
+## API Evangelist rating
+
+**Kin Score 26.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 34.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 44.7 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 18.4 |
+
+**Agent readiness 13.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gate-io/](https://apis.io/providers/gate-io/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gate.io: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gate-io/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
